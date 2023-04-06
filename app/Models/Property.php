@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
 
     protected $guarded = [];
 
@@ -19,8 +20,6 @@ class Property extends Model
     public function city(){
         return $this->belongsTo('App\Models\City');
     }
-
-
 
     public function category(){
         return $this->belongsTo('App\Models\category');

@@ -24,6 +24,7 @@ use App\Models\WaterFrontage;
 use App\Models\WaterView;
 use App\Models\Config_Property_Selection;
 
+
 class PropertyController extends Controller
 {
 
@@ -121,6 +122,7 @@ class PropertyController extends Controller
     }
     //stores property
     public function store(Request $request){
+        
 		$propertyType = $request->category;
 		$property_types_array = config('settings.property_types');
 		if(!array_key_exists($propertyType,$property_types_array)){
@@ -261,11 +263,29 @@ class PropertyController extends Controller
     // edit property
     public function edit($id){
         $property = Property::find($id);
-
-        return view('properties.edit', compact('property'));
+        // dd($property);
+        return view('property.propertiesedit',['data' => $property]);
     }
     
+    public function update(Request $request ){
+        // dd($request->name);
+	
 
+            $newProperty = Property::findOrFail($request->id);
+            $newProperty->save($request->all());
+            // dd($newProperty);
+           return redirect()->route('updateProperty', ['id' => $request->id])->with('success','property updated successfully');
+        
+    }
+
+    public function destroy($id){
+        $property = Property::findOrFail($id)->delete();
+        return redirect('/');
+        
+        
+    }
+
+            
 
     public function myproperties(){
 
@@ -293,9 +313,6 @@ class PropertyController extends Controller
         // }return ;
 
     }
-
-
-
 
 
 
