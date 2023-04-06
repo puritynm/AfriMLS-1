@@ -35,7 +35,6 @@ Route::get('/for-rent/{id}', 'Frontend\propertiesController@showNavForent')->nam
 Route::get('/properties/{id}', 'Frontend\PropertyController@show')->name('show');
 
 
-
 // receives data from search form
 Route::get('search','Frontend\SearchController@search')->name('search-form');
 
@@ -56,15 +55,17 @@ Route::get('/all-properties/show','PropertyController@allProperties')->name('pro
 //ajax get locations
 Route::GET('/ajaxGetLocations','PropertyController@getLocations');
 // Route::GET('/ajaxGetsearchLike','PropertyController@searchLike');
-Route::get('/properties/{id}/edit', 'PropertyController@edit')->name('properties.edit');
+// Route::get('/properties/{id}/edit', 'PropertyController@edit')->name('properties.edit');
 //property edit
 
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/AfriMLSdashboard', 'BackendDashboardController@dashboard')->name('backendDashboard');
     Route::get('/propertyType/create/{id}','PropertyController@create')->name('addProperty');
+    Route::get('/edit/{id}','PropertyController@edit')->name('updateProperty');
     Route::get('/propertyType/{propertyType}','PropertyController@show')->name('properTypeShow');
     Route::post('/property/store','PropertyController@store')->name('property.store');
+    Route::patch('/property/edit','PropertyController@update')->name('properties.update');
     Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
     Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
     Route::get('/user-profile', 'UserController@userProfile')->name('userProfile');

@@ -29,7 +29,7 @@
                 <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="pname">Property Name </label>
-                        <input type="text" name="pname" class="form-control" required>
+                        <input type="text" name="name" class="form-control" required>
                     </p>
                 </div>
                 <div class="col-md-3" style="padding: 1px; margin: 1px">
@@ -42,13 +42,13 @@
                 <div class="col-md-3" style="padding: 1px; margin: 1px">
                     <p>
                         <label for="">City</label>
-                            <select name="city_id" id="city_id" class="form-control" required onchange="getLocations()">
+                            <!-- <select name="city_id" id="city_id" class="form-control" required onchange="getLocations()">
                                 <option value="" disabled>select city</option>
                                 @foreach ($data[0]['cities'] as $city)
                                 <option value="{{$city->id}}">{{$city->name}}</option>
                                 @endforeach
 
-                            </select>
+                            </select> -->
                       </p>
 
                   </div>
@@ -259,10 +259,7 @@
               @foreach ($data[0]['utilities_data_feautures'] as $ut_data_feauture)
                 <div class=" col-md-2">
                   <ul class="list-unstyled">
-
-
                     <li><input type="checkbox" name="utilities_feauture[]" value="{{$ut_data_feauture->id}}" >{{$ut_data_feauture->utilities_data}}</li>
-
                   </ul>
 
                 </div>
@@ -343,7 +340,7 @@
 
  <div class="col-md-4 mx-auto py-4">
     <p>
-        <input type="submit" class="form-control btn btn-primary" value="Save Unit Details ">
+        <button type="submit" class="form-control btn btn-primary" value=" "> Save Unit Details </button>
     </p>
  </div>
 </form>
