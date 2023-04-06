@@ -278,7 +278,12 @@ class PropertyController extends Controller
         
     }
 
-
+    public function destroy($id){
+        $property = Property::findOrFail($id)->delete();
+        return redirect('/');
+        
+        
+    }
 
             
 

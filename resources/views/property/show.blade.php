@@ -41,7 +41,7 @@ Afri MLS {{$data['propertyValue']}}s
                         <td>{{$property->owner_phone ?? ""}}</td>
                         <td>{{$property->city->name ?? ""}}</td>
                         <td> <a href="{{route('updateProperty', $property->id) }}" class="btn btn-primary " >  Edit </a></td>
-                        <td> <button class="btn btn-danger"> Delete </button></td>
+                        <td> <a href="{{route('delete', $property->id) }}"  class="btn btn-danger "> Delete </a></td>
                     </tr>
 
 

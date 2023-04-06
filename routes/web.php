@@ -65,7 +65,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit/{id}','PropertyController@edit')->name('updateProperty');
     Route::get('/propertyType/{propertyType}','PropertyController@show')->name('properTypeShow');
     Route::post('/property/store','PropertyController@store')->name('property.store');
-    Route::patch('/property/edit','PropertyController@update')->name('properties.update');
+    Route::put('/property/edit','PropertyController@update')->name('properties.update');
+    Route::any('/property/delete/{id}','PropertyController@destroy')->name('delete');
     Route::get('/my-properties', 'PropertyController@myproperties')->name('myproperties');
     Route::get('showsingleproperty/{id}','PropertyController@showoneproperty')->name('showsingleproperty');
     Route::get('/user-profile', 'UserController@userProfile')->name('userProfile');

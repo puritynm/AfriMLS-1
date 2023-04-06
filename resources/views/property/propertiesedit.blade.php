@@ -15,7 +15,7 @@
     </ol>
     <form method="POST" action="{{ route('properties.update')}}" enctype="multipart/form-data">
         @csrf
-        @method('PATCH')
+        @method('PUT')
 
         {{-- @php
           dd($data)
